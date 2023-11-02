@@ -4,7 +4,7 @@ defmodule Sentencepiece.MixProject do
   def project do
     [
       app: :sentencepiece,
-      version: "0.1.0",
+      version: "0.1.1",
       elixir: "~> 1.15",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -32,7 +32,9 @@ defmodule Sentencepiece.MixProject do
   defp package do
     [
       description: "Sentencepiece bindings for Elixir",
-      files: ["priv", "lib", "mix.exs", "README.md"],
+      files: ~w(lib mix.exs README.md native/sentencepieceex/src LICENSE
+       native/sentencepieceex/Cargo.lock native/sentencepieceex/Cargo.toml
+       native/sentencepieceex/.cargo/config.toml),
       maintainers: ["MJ"],
       licenses: ["Apache-2.0"],
       links: %{"GitHub" => "https://github.com/mjason/sentencepiece"}
