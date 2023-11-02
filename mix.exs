@@ -36,7 +36,7 @@ defmodule Sentencepiece.MixProject do
        native/sentencepieceex/Cargo.lock native/sentencepieceex/Cargo.toml
        native/sentencepieceex/.cargo/config.toml),
       maintainers: ["MJ"],
-      licenses: ["Apache-2.0"],
+      licenses: ["MIT"],
       links: %{"GitHub" => "https://github.com/mjason/sentencepiece"}
     ]
   end
