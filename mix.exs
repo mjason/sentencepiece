@@ -7,7 +7,8 @@ defmodule Sentencepiece.MixProject do
       version: "0.1.0",
       elixir: "~> 1.15",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      package: package()
     ]
   end
 
@@ -27,8 +28,9 @@ defmodule Sentencepiece.MixProject do
     ]
   end
 
-  def package do
+  defp package do
     [
+      description: "Sentencepiece bindings for Elixir",
       files: ["priv", "lib", "mix.exs", "README.md"],
       maintainers: ["MJ"],
       licenses: ["Apache-2.0"],
