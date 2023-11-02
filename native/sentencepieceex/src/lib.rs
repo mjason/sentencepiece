@@ -90,6 +90,22 @@ fn encode(
         .collect())
 }
 
+#[rustler::nif(schedule = "DirtyIo")]
+fn encode_sentence_to_ids(
+    model: ResourceArc<SentencePieceModel>,
+    sentence: String,
+) -> NifResult<Vec<u32>> {
+    let sp: Arc<SentencePieceProcessor> = model.sp.to_owned();
+
+    let encoded = sp
+        .encode(&sentence)
+        .map_err(|e| rustler::Error::Term(Box::new(e.to_string())))?;
+
+    let ids: Vec<u32> = encoded.into_iter().map(|piece| piece.id).collect();
+
+    Ok(ids)
+}
+
 #[rustler::nif]
 fn is_empty(model: ResourceArc<SentencePieceModel>) -> NifResult<bool> {
     let sp = model.sp.to_owned();
@@ -164,7 +180,8 @@ rustler::init!(
         sample_encode,
         get_piece_from_piece_with_id_model,
         get_id_from_piece_with_id_model,
-        get_span_from_piece_with_id_model
+        get_span_from_piece_with_id_model,
+        encode_sentence_to_ids
     ],
     load = |env: Env, _| {
         rustler::resource!(SentencePieceModel, env);

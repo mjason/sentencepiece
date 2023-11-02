@@ -15,6 +15,7 @@ defmodule SentencePieceEx do
   def decode_piece_ids(_model, _ids), do: :erlang.nif_error(:nif_not_loaded)
   def decode_pieces(_model, _pieces), do: :erlang.nif_error(:nif_not_loaded)
   def encode(_model, _sentence), do: :erlang.nif_error(:nif_not_loaded)
+  def encode_sentence_to_ids(_model, _sentence), do: :erlang.nif_error(:nif_not_loaded)
 
   def is_empty(_model), do: :erlang.nif_error(:nif_not_loaded)
   def piece_to_id(_model, _piece), do: :erlang.nif_error(:nif_not_loaded)

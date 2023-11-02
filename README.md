@@ -1,6 +1,6 @@
 # Sentencepiece
 
-**TODO: Add description**
+Google sentencepiece bind elixir.
 
 ## Installation
 
@@ -14,6 +14,8 @@ def deps do
   ]
 end
 ```
+
+> need rust toolchain
 
 Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
 and published on [HexDocs](https://hexdocs.pm). Once published, the docs can

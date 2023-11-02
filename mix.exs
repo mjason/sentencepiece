@@ -26,4 +26,13 @@ defmodule Sentencepiece.MixProject do
       {:rustler, "~> 0.30.0"}
     ]
   end
+
+  def package do
+    [
+      files: ["priv", "lib", "mix.exs", "README.md"],
+      maintainers: ["MJ"],
+      licenses: ["Apache-2.0"],
+      links: %{"GitHub" => "https://github.com/mjason/sentencepiece"}
+    ]
+  end
 end
